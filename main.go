@@ -10,7 +10,7 @@ import (
 	"strings"
 	"sync"
 
-	cn "github.com/Shellywell123/ChessNet/ChessNet"
+	cn "github.com/Shellywell123/ChessNet/chessnet"
 )
 
 const GNUMOVE = "My move is : e4"
