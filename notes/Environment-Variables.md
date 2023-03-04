@@ -19,7 +19,7 @@ SET | findstr Path
 In Linux
 ```bash
 export GOROOT = /ussr/local/go
-export GOPAT = $HOME/workspace
+export GOPATH = $HOME/workspace
 PATH = PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 ```
 

@@ -2,18 +2,20 @@
 // - Entity:(own contained functions)
 // - Recieve chess notation FROM a chess engine - is this needed if we can passs the board
 
-package ChessNet
+package entities
 
 import (
 	"io"
-	"log"
-	"os"
 	"strings"
+	"os"
+	"log"
+
+	u "github.com/Shellywell123/ChessNut-Pie/go/utilities"
 )
 
 // - Start a chess engine
 func startEngine() {
-
+	
 }
 
 // - Send chess notation to a chess engine - gnuchess already does this

@@ -1,4 +1,4 @@
-package ChessNet
+package utilities
 
 import (
 	"io"
