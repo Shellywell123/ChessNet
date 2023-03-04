@@ -12,5 +12,4 @@ func WriteStdOut(message string, stdin io.WriteCloser) {
 func FileExists(path string) bool {
 	_, err := os.Open(path) // For read access.
 	return err == nil
-
 }

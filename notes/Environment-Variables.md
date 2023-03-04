@@ -23,7 +23,7 @@ export GOPATH = $HOME/workspace
 PATH = PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 ```
 
-In Windows CMD
+In Windows CMD      
 ```bash
 TODO
 ```
@@ -35,7 +35,7 @@ go env
 ```
 
 # Paths
-
 There are two main paths to worry about when using go
  - `GOROOT`, this is the path to your go binary typical location is `/usr/local/go`
  - `GOPATH` this is the path to your "workspace" (where your go projects live)
+ 

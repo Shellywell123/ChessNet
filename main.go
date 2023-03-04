@@ -9,8 +9,7 @@ import (
 	"os/exec"
 	"strings"
 	"sync"
-
-	cn "github.com/shellywell123/ChessNet/ChessNet"
+	cn "github.com/Shellywell123/ChessNet/ChessNet"
 )
 
 const GNUMOVE = "My move is : e4"
@@ -34,7 +33,7 @@ func listener(channel chan string, stdin io.WriteCloser) {
 		msg := <-channel // syntax for stuff bing recievd bt the channel (listener/reciever) Ref: https://gobyexample.com/channels
 		// If the msg (which is a string) contains the substring GNUMOVE "My move is :", then write a second move - in this case d4
 		if strings.Contains(msg, GNUMOVE) {
-			WriteStdOut("d4\n", stdin)
+			cn.WriteStdOut("d4\n", stdin)
 		}
 		fmt.Printf("%s\n", msg)
 	}
@@ -64,16 +63,16 @@ func main() {
 	go listener(events, stdin) // We are running a goroutine ("think: magic thread") calling the function writeOut
 
 	// Load
-	e.loadGameToEngine(GAMEFILE, stdin)
+	cn.LoadGameToEngine(GAMEFILE, stdin)
 
 	// Play Move
-	e.sendChessMoveToEngine(GNUMOVE, stdin)
+	cn.SendChessMoveToEngine(GNUMOVE, stdin)
 
 	// Save
-	e.saveGameFromEngine(GAMEFILE, stdin)
+	cn.SaveGameFromEngine(GAMEFILE, stdin)
 
 	// quit engine
-	e.quitGameEngine(stdin)
+	cn.QuitGameEngine(stdin)
 
 	// Create a stdout reader
 	r := bufio.NewReader(stdout) // input out put buffer from lib we have imported
