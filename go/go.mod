@@ -1,3 +1,3 @@
-module example.com/m/v2
+module github.com/Shellywell123/ChessNut-Pie
 
 go 1.20
