@@ -9,8 +9,8 @@ import (
 	"strings"
 	"os"
 	"log"
-	
-	u "github.com/Shellywell123/ChessNut-Pie/go/untilities"
+
+	u "github.com/Shellywell123/ChessNut-Pie/go/utilities"
 )
 
 // - Start a chess engine

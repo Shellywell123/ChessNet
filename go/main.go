@@ -10,7 +10,7 @@ import (
 	"strings"
 	"sync"
 
-	u "github.com/Shellywell123/ChessNut-Pie/go/untilities"
+	u "github.com/Shellywell123/ChessNut-Pie/go/utilities"
 	e "github.com/Shellywell123/ChessNut-Pie/go/entities"
 )
 

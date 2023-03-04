@@ -1,4 +1,4 @@
-package untilities
+package utilities
 
 import (
 	"io"
