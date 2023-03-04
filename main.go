@@ -42,7 +42,7 @@ func listener(channel chan string, stdin io.WriteCloser) {
 
 func main() {
 
-	fmt.Printf("%s\n", cn.BOOTLOGO)
+	cn.PrintBootLogo()
 
 	// Set up some MPSC stuff - specifically one reciever
 	// wait groups - we dont use at all lol (for notifying us when a thread is finished doing its thing)
