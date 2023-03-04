@@ -7,6 +7,8 @@ Go will not allow importing unsued packages to bloat your code.
 
 modules are third party libraries, which live in `$GOROOT/pkg`
 
+The case of a function defined in a file dictates wether it is "exported" (publicly accessible) or ont to the rest of the package.
+
 ## installing ?
 ```bash
 go get <package-name>

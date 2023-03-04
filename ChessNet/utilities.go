@@ -1,15 +1,15 @@
-package utilities
+package chessnet
 
 import (
 	"io"
 	"os"
 )
 
-func writeStdOut(message string, stdin io.WriteCloser) {
+func WriteStdOut(message string, stdin io.WriteCloser) {
 	stdin.Write([]byte(message))
 }
 
-func fileExists(path string) bool {
+func FileExists(path string) bool {
 	_, err := os.Open(path) // For read access.
 	return err == nil
 

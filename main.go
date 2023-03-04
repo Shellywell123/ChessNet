@@ -10,8 +10,7 @@ import (
 	"strings"
 	"sync"
 
-	u "github.com/Shellywell123/ChessNut-Pie/go/utilities"
-	e "github.com/Shellywell123/ChessNut-Pie/go/entities"
+	cn "github.com/shellywell123/ChessNet/ChessNet"
 )
 
 const GNUMOVE = "My move is : e4"
@@ -35,7 +34,7 @@ func listener(channel chan string, stdin io.WriteCloser) {
 		msg := <-channel // syntax for stuff bing recievd bt the channel (listener/reciever) Ref: https://gobyexample.com/channels
 		// If the msg (which is a string) contains the substring GNUMOVE "My move is :", then write a second move - in this case d4
 		if strings.Contains(msg, GNUMOVE) {
-			u.writeStdOut("d4\n", stdin)
+			WriteStdOut("d4\n", stdin)
 		}
 		fmt.Printf("%s\n", msg)
 	}
