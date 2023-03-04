@@ -9,6 +9,7 @@ import (
 	"os/exec"
 	"strings"
 	"sync"
+
 	cn "github.com/Shellywell123/ChessNet/ChessNet"
 )
 
@@ -40,6 +41,8 @@ func listener(channel chan string, stdin io.WriteCloser) {
 }
 
 func main() {
+
+	fmt.Printf("%s\n", cn.BOOTLOGO)
 
 	// Set up some MPSC stuff - specifically one reciever
 	// wait groups - we dont use at all lol (for notifying us when a thread is finished doing its thing)
