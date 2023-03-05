@@ -34,7 +34,7 @@ func listener(channel chan string, stdin io.WriteCloser) {
 		msg := <-channel // syntax for stuff bing recievd bt the channel (listener/reciever) Ref: https://gobyexample.com/channels
 		// If the msg (which is a string) contains the substring GNUMOVE "My move is :", then write a second move - in this case d4
 		if strings.Contains(msg, GNUMOVE) {
-			cn.WriteStdOut("d4\n", stdin)
+			chessnet.WriteStdOut("d4\n", stdin)
 		}
 		fmt.Printf("%s\n", msg)
 	}
