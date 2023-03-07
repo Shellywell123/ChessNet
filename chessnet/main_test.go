@@ -16,9 +16,3 @@ func Test_test2(t *testing.T) {
 	equalThis := true
 	require.Equal(t, doesThis, equalThis)
 }
-
-func Test_test3(t *testing.T) {
-	doesThis := true
-	equalThis := true
-	require.Equal(t, doesThis, equalThis)
-}
