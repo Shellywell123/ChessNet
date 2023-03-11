@@ -7,5 +7,5 @@ import (
 const GAMEFILE = "GAME.PGN"
 
 func main() {
-	cns.Play("e2e4", GAMEFILE)
+	cns.play("e2e4", GAMEFILE)
 }

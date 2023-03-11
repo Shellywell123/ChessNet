@@ -5,11 +5,11 @@ import (
 	"os"
 )
 
-func WriteStdOut(message string, stdin io.WriteCloser) {
+func writeStdOut(message string, stdin io.WriteCloser) {
 	stdin.Write([]byte(message))
 }
 
-func FileExists(path string) bool {
+func fileExists(path string) bool {
 	_, err := os.Open(path) // For read access.
 	return err == nil
 }
