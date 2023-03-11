@@ -2,7 +2,7 @@
 // - Entity:(own contained functions)
 // - Recieve chess notation FROM a chess engine - is this needed if we can passs the board
 
-package chessnetrepository
+package chessnet
 
 import (
 	"fmt"
