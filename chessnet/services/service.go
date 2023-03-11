@@ -1,4 +1,4 @@
-package chessnet
+package chessnetservice
 
 import (
 	"sync"
