@@ -1,8 +1,8 @@
-package chessnet
+package chessnetservice
 
 import (
 	"sync"
-	cnr "github.com/Shellywell123/ChessNet/chessnet/repositories"
+	cnr "github.com/Shellywell123/ChessNet/chessnet/chessnetrepository"
 )
 
 func play(MOVE string, GAMEFILE string) {

@@ -1,4 +1,5 @@
-package chessnet
+package chessnetrepository
+
 
 import (
 	"github.com/stretchr/testify/require"
