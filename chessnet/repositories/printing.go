@@ -1,4 +1,4 @@
-package chessnetrepository
+package repositories
 
 import (
 	"fmt"

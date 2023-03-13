@@ -1,13 +1,15 @@
-package chessnetservice
+package services
 
 import (
 	"sync"
-	cnr "github.com/Shellywell123/ChessNet/chessnet/chessnetrepository"
+	
+	cnr "github.com/Shellywell123/ChessNet/chessnet/repositories"
+	
 )
 
 func play(MOVE string, GAMEFILE string) {
 
-	cnr.printBootLogo()
+	cnr.PrintBootLogo()
 
 	// Set up some MPSC stuff - specifically one reciever
 	// wait groups - we dont use at all lol (for notifying us when a thread is finished doing its thing)
@@ -16,18 +18,18 @@ func play(MOVE string, GAMEFILE string) {
 	wgRx.Add(1)
 
 	// Start
-	stdin, _ := cnr.startEngine()
+	stdin, _ := cnr.StartEngine()
 
 	// Load
-	cnr.loadGameToEngine(GAMEFILE, stdin)
+	cnr.LoadGameToEngine(GAMEFILE, stdin)
 
 	// Play Move
-	cnr.sendChessMoveToEngine(MOVE, stdin)
+	cnr.SendChessMoveToEngine(MOVE, stdin)
 	//fmt.Println()
 
 	// Save
-	cnr.saveGameFromEngine(GAMEFILE, stdin)
+	cnr.SaveGameFromEngine(GAMEFILE, stdin)
 
 	// quit engine
-	cnr.quitGameEngine(stdin)
+	cnr.QuitGameEngine(stdin)
 }
