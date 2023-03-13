@@ -14,6 +14,9 @@ import (
 
 // - Start a chess engine
 func StartEngine() (io.WriteCloser, io.ReadCloser) {
+
+	printBootLogo()
+
 	cmd := exec.Command("gnuchess --xboard")
 	cmd.Stderr = os.Stderr        // gnuchess standard errors are pasesed as cmd errors
 	stdin, err := cmd.StdinPipe() // assign stdin variable to the command stdinput - the thing we'll message gnuchess for. This is the same type of 'pipe' as | in bash
