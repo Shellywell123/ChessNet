@@ -15,8 +15,6 @@ import (
 // - Start a chess engine
 func StartEngine() (io.WriteCloser, io.ReadCloser) {
 
-	printBootLogo()
-
 	cmd := exec.Command("gnuchess --xboard")
 	cmd.Stderr = os.Stderr        // gnuchess standard errors are pasesed as cmd errors
 	stdin, err := cmd.StdinPipe() // assign stdin variable to the command stdinput - the thing we'll message gnuchess for. This is the same type of 'pipe' as | in bash
@@ -32,7 +30,7 @@ func StartEngine() (io.WriteCloser, io.ReadCloser) {
 
 // - Send chess notation to a chess engine - gnuchess already does this
 func SendChessMoveToEngine(MOVE string, stdin io.WriteCloser) {
-	fmt.Println("moving " + MOVE)
+	fmt.Println(" > moving " + MOVE)
 	writeStdOut(MOVE+"\n", stdin)
 }
 
@@ -40,13 +38,13 @@ func SendChessMoveToEngine(MOVE string, stdin io.WriteCloser) {
 func LoadGameToEngine(GAMEFILE string, stdin io.WriteCloser) {
 	if fileExists(GAMEFILE) {
 		writeStdOut("pgnload "+GAMEFILE+" \n", stdin)
-		fmt.Println("loaded " + GAMEFILE)
+		fmt.Println(" > loaded " + GAMEFILE)
 	} else {
 		emptyFile, err := os.Create(GAMEFILE)
 		if err != nil {
 			log.Fatal(err)
 		}
-		fmt.Println("created " + GAMEFILE)
+		fmt.Println(" > created " + GAMEFILE)
 		emptyFile.Close()
 	}
 }
@@ -54,11 +52,11 @@ func LoadGameToEngine(GAMEFILE string, stdin io.WriteCloser) {
 // - Save a game of chess (note - this does not mean persistence like on disk) (PGN/FEM)
 func SaveGameFromEngine(GAMEFILE string, stdin io.WriteCloser) {
 	writeStdOut("pgnsave "+GAMEFILE+"\n", stdin)
-	fmt.Println("saved " + GAMEFILE)
+	fmt.Println(" > saved " + GAMEFILE)
 }
 
 // exit out of gnuchess
 func QuitGameEngine(stdin io.WriteCloser) {
 	writeStdOut("quit\n", stdin)
-	fmt.Println("exited.")
+	fmt.Println(" > exited.")
 }

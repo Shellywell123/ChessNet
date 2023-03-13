@@ -5,10 +5,9 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-
 	"sync"
 
-	cnr "github.com/Shellywell123/ChessNet/chessnet/repositories/server/"
+	cnr "github.com/Shellywell123/ChessNet/chessnet/repositories/server"
 )
 
 func play(MOVE string, GAMEFILE string) {
@@ -27,7 +26,6 @@ func play(MOVE string, GAMEFILE string) {
 
 	// Play Move
 	cnr.SendChessMoveToEngine(MOVE, stdin)
-	//fmt.Println()
 
 	// Save
 	cnr.SaveGameFromEngine(GAMEFILE, stdin)
@@ -48,17 +46,20 @@ func handle(rw http.ResponseWriter, req *http.Request) {
 	if err != nil {
 		panic(err)
 	}
-	log.Println(t.move)
+
 	GAMEFILE := t.user + ".PGN"
-	play(t.move, GAMEFILE)
+	log.Println("New Incoming Request:", t.user, t.move)
+	play(t.move, GAMEFILE) // not sure why these are blank
 }
 
 func StartServer() {
+	fmt.Println("Server version v0.01")
+	cnr.PrintBootLogo()
 
+	// handlers
 	http.HandleFunc("/chessnet", handle)
 
-	fmt.Println("servering on 8090")
+	// start server
+	fmt.Println("listening on 8090")
 	http.ListenAndServe(":8090", nil)
-
-	fmt.Println("server>")
 }

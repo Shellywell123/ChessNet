@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-func printBootLogo() {
+func PrintBootLogo() {
 	contents, err := os.ReadFile("assets/ascii-boot-logo.txt")
 	if err != nil {
 		log.Fatal(err)
