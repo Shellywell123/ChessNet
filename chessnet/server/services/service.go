@@ -3,7 +3,7 @@ package services
 import (
 	"sync"
 
-	cnr "github.com/Shellywell123/ChessNet/chessnet/repositories"
+	cnr "github.com/Shellywell123/ChessNet/chessnet/server/repositories"
 )
 
 func Play(MOVE string, GAMEFILE string) {
