@@ -62,7 +62,3 @@ func StartServer() {
 
 	fmt.Println("server>")
 }
-
-func main() {
-	StartServer()
-}
