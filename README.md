@@ -22,15 +22,13 @@ A personal project for learning [Go](https://go.dev/) involving [GNUChess](https
 go run .
 ```
 
-# requat the api
+# request the api
 ```
 curl -X POST localhost:8090/chessnet -d '{"move": "e2e4", "user": "tester"}'
 ```
-
 # kubernetes
 ```bash
 docker build . -t chessnet-server
 ```
 ```bash
 kuberctl apply -f kubernetes/development.yaml
-```
