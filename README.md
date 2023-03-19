@@ -26,3 +26,11 @@ go run .
 ```
 curl -X POST localhost:8090/chessnet -d '{"move": "e2e4", "user": "tester"}'
 ```
+
+# kubernetes
+```bash
+docker build . -t chessnet-server
+```
+```bash
+kuberctl apply -f kubernetes/development.yaml
+```
