@@ -1,7 +1,7 @@
 package main
 
 import (
-	cns "github.com/Shellywell123/ChessNet/chessnet/services/server"
+	cns "github.com/Shellywell123/ChessNet/src/services/server"
 )
 
 func main() {

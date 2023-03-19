@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"sync"
 
-	cnr "github.com/Shellywell123/ChessNet/chessnet/repositories/server"
+	cnr "github.com/Shellywell123/ChessNet/src/repositories/server"
 )
 
 func play(MOVE string, GAMEFILE string) {
