@@ -9,23 +9,23 @@ metadata:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pod-info-deployment
+  name: chessnet-deployment
   namespace: development
   labels:
-    app: pod-info
+    app: chessnet
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: pod-info
+      app: chessnet
   template:
     metadata:
       labels:
-        app: pod-info
+        app: chessnet
     spec:
       containers:
-      - name: pod-info-container
-        image: chessnet-server
+      - name: chessnet-container
+        image: chessnet-server:latest
         ports:
         - containerPort: 3000
         env:
@@ -41,3 +41,17 @@ spec:
             valueFrom:
               fieldRef:
                 fieldPath: status.podIP
+--- 
+# deploy a loadbalancer (service)
+apiVersion: v1
+kind: Service
+metadata:
+  name: chessnet-loadbalancer
+  namespace: development
+spec:
+  selector:
+    app: chessnet-server
+  ports:
+  - port: 80
+    targetPort: 3000
+  type: LoadBalancer

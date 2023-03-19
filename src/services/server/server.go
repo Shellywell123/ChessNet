@@ -52,11 +52,16 @@ func handle(rw http.ResponseWriter, req *http.Request) {
 	play(t.move, GAMEFILE) // not sure why these are blank
 }
 
+func handler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Hi there, I love %s!", r.URL.Path[1:])
+}
+
 func StartServer() {
 	fmt.Println("Server version v0.01")
 	cnr.PrintBootLogo()
 
 	// handlers
+	http.HandleFunc("/", handler)
 	http.HandleFunc("/chessnet", handle)
 
 	// start server
