@@ -1,4 +1,4 @@
-module github.com/Shellywell123/ChessNet
+module github.com/Shellywell123/ChessNet/src
 
 go 1.20
 
