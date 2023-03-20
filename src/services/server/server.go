@@ -65,6 +65,6 @@ func StartServer() {
 	http.HandleFunc("/chessnet", handle)
 
 	// start server
-	fmt.Println("listening on 8090")
-	http.ListenAndServe(":8090", nil)
+	fmt.Println("listening on 3000")
+	http.ListenAndServe(":3000", nil)
 }

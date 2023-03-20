@@ -28,7 +28,14 @@ curl -X POST localhost:8090/chessnet -d '{"move": "e2e4", "user": "tester"}'
 ```
 # kubernetes
 ```bash
-docker build . -t chessnet-server
+minikube start
+```
+```bash
+docker build . -o ChessNet.exe
+```
+```bash
+eval $(minikube -p minikube docker-env)
 ```
 ```bash
 kuberctl apply -f kubernetes/development.yaml
+```
