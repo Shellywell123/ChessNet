@@ -27,7 +27,7 @@ spec:
       - name: chessnet-container
         image: chessnet-server:latest-1
         ports:
-        - containerPort: 3000
+        - containerPort: 1234
         env:
           - name: POD_NAME
             valueFrom:
