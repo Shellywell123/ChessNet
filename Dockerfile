@@ -2,10 +2,8 @@ FROM golang:1.20
 
 WORKDIR /usr/src/app
 
-# pre-copy/cache go.mod for pre-downloading dependencies and only redownloading them in subsequent builds if they change
 COPY . .
-# jacob said remove
-# RUN go mod download && go mod verify
-# RUN go build .
 
-CMD ["./ChessNet.exe"]
+RUN go build -o bin/ChessNet
+
+CMD ["./bin/ChessNet"]

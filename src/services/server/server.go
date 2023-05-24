@@ -10,6 +10,11 @@ import (
 	cnr "github.com/Shellywell123/ChessNet/src/repositories/server"
 )
 
+type test_struct struct {
+	move string
+	user string
+}
+
 func play(MOVE string, GAMEFILE string) {
 
 	// Set up some MPSC stuff - specifically one reciever
@@ -34,11 +39,6 @@ func play(MOVE string, GAMEFILE string) {
 	cnr.QuitGameEngine(stdin)
 }
 
-type test_struct struct {
-	move string
-	user string
-}
-
 func handle(rw http.ResponseWriter, req *http.Request) {
 	decoder := json.NewDecoder(req.Body)
 	var t test_struct
@@ -53,7 +53,7 @@ func handle(rw http.ResponseWriter, req *http.Request) {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hi there, I love %s!", r.URL.Path[1:])
+	fmt.Fprintf(w, "check mate.\n")
 }
 
 func StartServer() {
@@ -65,6 +65,10 @@ func StartServer() {
 	http.HandleFunc("/chessnet", handle)
 
 	// start server
-	fmt.Println("listening on 3001")
-	http.ListenAndServe(":1234", nil)
+	port := ":3000"
+	fmt.Printf("listening on %s\n", port)
+	err := http.ListenAndServe(port, nil)
+	if err != nil {
+		log.Fatal("ListenAndServe: ", err)
+	}
 }

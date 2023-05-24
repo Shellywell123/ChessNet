@@ -19,7 +19,7 @@ A personal project for learning [Go](https://go.dev/) involving [GNUChess](https
 
 # start the server
 ```bash
-go run .
+sh run.sh
 ```
 
 # request the api

@@ -1,5 +1,6 @@
+name: ChessNet-root
 ---
-# create a namespac
+# create a namespace
 apiVersion: v1
 kind: Namespace
 metadata:
@@ -53,5 +54,5 @@ spec:
     app: chessnet-server
   ports:
   - port: 80
-    targetPort: 3000
+    targetPort: 1234
   type: LoadBalancer

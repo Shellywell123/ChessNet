@@ -1,0 +1,8 @@
+version: "0.1"
+name: "chessnet"
+services:
+  server:
+    build: .
+    container_name: chessnetcontainer
+    ports:
+    - "3000:3000"
