@@ -3,6 +3,7 @@ package server
 import (
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"sync"
@@ -11,8 +12,8 @@ import (
 )
 
 type test_struct struct {
-	move string
-	user string
+	Move string
+	User string
 }
 
 func play(MOVE string, GAMEFILE string) {
@@ -40,16 +41,24 @@ func play(MOVE string, GAMEFILE string) {
 }
 
 func handle(rw http.ResponseWriter, req *http.Request) {
-	decoder := json.NewDecoder(req.Body)
-	var t test_struct
-	err := decoder.Decode(&t)
+	body, err := ioutil.ReadAll(req.Body)
 	if err != nil {
 		panic(err)
 	}
+	var t test_struct
+	err = json.Unmarshal(body, &t)
+	if err != nil {
+		panic(err)
+	}
+	GAMEFILE := t.User + ".PGN"
 
-	GAMEFILE := t.user + ".PGN"
-	log.Println("New Incoming Request:", t.user, t.move)
-	play(t.move, GAMEFILE) // not sure why these are blank
+	// print server side
+	log.Println("New Incoming Request:", t.User, t.Move)
+
+	// print client side
+	fmt.Fprintf(rw, "Move recieved: %s from %s\n", t.Move, t.User)
+
+	play(t.Move, GAMEFILE) // not sure why these are blank
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
@@ -62,7 +71,7 @@ func StartServer() {
 
 	// handlers
 	http.HandleFunc("/", handler)
-	http.HandleFunc("/chessnet", handle)
+	http.HandleFunc("/game", handle)
 
 	// start server
 	port := ":3000"

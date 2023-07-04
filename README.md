@@ -23,7 +23,7 @@ sh run_in_docker_container.sh
 ```
 In a seperate terminal:
 ```bash
-curl -X POST localhost:3000/chessnet -d '{"move": "e2e4", "user": "tester"}'
+curl -X POST localhost:3000/game -d '{"move": "e2e4", "user": "tester"}'
 ```
 
 # Run in local kubernetes cluster
@@ -33,5 +33,5 @@ sh run_in_kubernetes_cluster.sh
 ```
 In a seperate terminal:
 ```bash
-curl -X POST <url-shown-in-1st-terminal>/chessnet -d '{"move": "e2e4", "user": "tester"}'
+curl -X POST <url-shown-in-1st-terminal>/game -d '{"move": "e2e4", "user": "tester"}'
 ```
